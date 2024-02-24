@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Coordinatable: AnyObject {
+public protocol Coordinatable: AnyObject {
     associatedtype Routes
     var onComplete: FlowCompletion? { get set }
     var navigationController: UINavigationController { get }
@@ -19,31 +19,29 @@ protocol Coordinatable: AnyObject {
     func start(animated: Bool, onComplete: FlowCompletion?)
 }
 
-class BaseCoordinator: Coordinatable {
-    enum Routes {}
+open class BaseCoordinator: Coordinatable {
+    public enum Routes {}
 
-    let navigationController: UINavigationController
-    var onComplete: FlowCompletion? = nil
-    private(set) var startedAtIndex: Int = 0
+    public let navigationController: UINavigationController
+    public var onComplete: FlowCompletion? = nil
+    public private(set) var startedAtIndex: Int = 0
 
-    required init(with navigationController: UINavigationController) {
+    required public init(with navigationController: UINavigationController) {
         self.navigationController = navigationController
         startedAtIndex = navigationController.viewControllers.count
     }
 
-    func route(to _: Routes, animated _: Bool = true) {}
+    open func route(to _: Routes, animated _: Bool = true) {}
 
-    func backward(animated: Bool = true) {
+    open func backward(animated: Bool = true) {
         navigationController.popViewController(animated: animated)
     }
 
-    func start(animated _: Bool = true,
-               onComplete: FlowCompletion? = nil)
-    {
+    open func start(animated _: Bool = true, onComplete: FlowCompletion? = nil) {
         self.onComplete = onComplete
     }
 
-    func complete() {
+    open func complete() {
         let last = navigationController.viewControllers.count - startedAtIndex
         navigationController.viewControllers.removeLast(last)
         onComplete?()
