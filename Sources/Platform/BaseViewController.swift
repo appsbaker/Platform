@@ -13,12 +13,13 @@ open class BaseViewController<VM>: UIViewController, FeatureScene {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         setupViewAndConstraints()
     }
 
     open func setupViewAndConstraints() {}
 
-    open func configure(viewModel: ViewModel?) {
+    public func configure(viewModel: ViewModel?) {
         self.viewModel = viewModel
     }
 }
