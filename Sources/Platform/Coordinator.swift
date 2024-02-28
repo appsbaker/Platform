@@ -31,13 +31,14 @@ open class BaseCoordinator: Coordinatable {
         startedAtIndex = navigationController.viewControllers.count
     }
 
-    open func route(to _: Routes, animated _: Bool = true) {}
+    open func route(to: Routes, animated: Bool = true) {}
 
     open func backward(animated: Bool = true) {
         navigationController.popViewController(animated: animated)
     }
 
-    open func start(animated _: Bool = true, onComplete: FlowCompletion? = nil) {
+    open func start(animated: Bool = true,
+                    onComplete: FlowCompletion? = nil) {
         self.onComplete = onComplete
     }
 
