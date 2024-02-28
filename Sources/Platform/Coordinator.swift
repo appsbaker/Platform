@@ -31,15 +31,14 @@ open class BaseCoordinator: Coordinatable {
         startedAtIndex = navigationController.viewControllers.count
     }
 
-    open func route(to: Routes, animated: Bool = true) {}
+    open func route(to: Routes, animated: Bool = true) { }
 
     open func backward(animated: Bool = true) {
         navigationController.popViewController(animated: animated)
     }
 
-    open func start(animated: Bool = true,
-                    onComplete: FlowCompletion? = nil) {
-        self.onComplete = onComplete
+    open func start(animated: Bool = true, onComplete: FlowCompletion? = nil) {
+        fatalError("This method should be overrided, and don't called from super class.")
     }
 
     open func complete() {
