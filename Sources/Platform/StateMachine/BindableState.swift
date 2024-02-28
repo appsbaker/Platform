@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 @available(iOS 15.0, *)
-public protocol BindableViewModel: AnyObject {
+public protocol BindableState: AnyObject {
     associatedtype State: ObservableObject
     var state: State { get }
     func bind(_ textField: UITextField, 
@@ -18,7 +18,7 @@ public protocol BindableViewModel: AnyObject {
 }
 
 @available(iOS 15.0, *)
-public extension BindableViewModel {
+public extension BindableState {
     func bind(_ textField: UITextField, 
               to property: ReferenceWritableKeyPath<State, String?>,
               handler: ((String?)->Void)? = nil) -> AnyCancellable {
