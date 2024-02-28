@@ -5,7 +5,7 @@
 //  Created by Slava Anishchuk on 19.02.2024.
 //
 
-import UIKit
+import DesignSystem
 
 public typealias AnyFeatureScene = (any FeatureScene)
 

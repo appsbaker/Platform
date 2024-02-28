@@ -1,14 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Slava Anishchuk on 24.02.2024.
-//
-
 import UIKit
 
 public extension UIStackView {
-    
     convenience init(
         axis: NSLayoutConstraint.Axis = .vertical,
         distribution: UIStackView.Distribution = .fill,

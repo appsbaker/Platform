@@ -5,7 +5,7 @@
 //  Created by Slava Anishchuk on 21.02.2024.
 //
 
-import UIKit
+import DesignSystem
 
 public protocol FeatureScene where Self: UIViewController {
     associatedtype ViewModel

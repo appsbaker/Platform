@@ -5,7 +5,7 @@
 //  Created by Slava Anishchuk on 22.02.2024.
 //
 
-import UIKit
+import DesignSystem
 
 open class BaseViewController<VM>: UIViewController, FeatureScene {
     public typealias ViewModel = VM
