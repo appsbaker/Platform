@@ -45,7 +45,11 @@ public extension NetworkService {
         request.httpBody = httpBody
         request.allHTTPHeaderFields = headers
         request.httpMethod = method.rawValue
-        let (data, _) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200
+        else { throw URLError(.badServerResponse) }
+
         return data
     }
 }

@@ -16,9 +16,11 @@ open class BaseViewController<VM>: UIViewController, FeatureScene {
         view.backgroundColor = .init(named: "background.primary")
         setupViewAndConstraints()
         binding()
+        addActions()
     }
 
     open func binding() {}
+    open func addActions() {}
     open func setupViewAndConstraints() {}
 
     public func configure(viewModel: ViewModel?) {

@@ -7,7 +7,7 @@
 
 import Combine
 
-@available(iOS 13, *)
+@available(iOS 15, *)
 public protocol StateMachine {
     associatedtype Action
     associatedtype State: ObservableObject
