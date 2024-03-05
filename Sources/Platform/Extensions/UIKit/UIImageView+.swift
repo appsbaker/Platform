@@ -3,9 +3,8 @@ import UIKit
 @available(iOS 15, *)
 public extension UIImageView {
     func loadImage(from url: URL) async throws {
-        let request = URLRequest(url: url, cachePolicy: .returnCacheDataDontLoad)
+        let request = URLRequest(url: url)
         let (data, _) = try await URLSession.shared.data(for: request)
-        
         self.image = .init(data: data)
     }
 
